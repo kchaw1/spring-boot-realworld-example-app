@@ -1,10 +1,6 @@
 package io.spring.graphql;
 
-import com.netflix.graphql.dgs.DgsComponent;
-import com.netflix.graphql.dgs.DgsData;
-import com.netflix.graphql.dgs.DgsDataFetchingEnvironment;
-import com.netflix.graphql.dgs.DgsQuery;
-import com.netflix.graphql.dgs.InputArgument;
+import com.netflix.graphql.dgs.*;
 import graphql.execution.DataFetcherResult;
 import graphql.relay.DefaultConnectionCursor;
 import graphql.relay.DefaultPageInfo;
@@ -27,10 +23,11 @@ import io.spring.graphql.types.Article;
 import io.spring.graphql.types.ArticleEdge;
 import io.spring.graphql.types.ArticlesConnection;
 import io.spring.graphql.types.Profile;
-import java.util.HashMap;
-import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.joda.time.format.ISODateTimeFormat;
+
+import java.util.HashMap;
+import java.util.stream.Collectors;
 
 @DgsComponent
 @AllArgsConstructor

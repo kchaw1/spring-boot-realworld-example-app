@@ -18,8 +18,9 @@ import io.spring.graphql.types.Article;
 import io.spring.graphql.types.Comment;
 import io.spring.graphql.types.Profile;
 import io.spring.graphql.types.ProfilePayload;
-import java.util.Map;
 import lombok.AllArgsConstructor;
+
+import java.util.Map;
 
 @DgsComponent
 @AllArgsConstructor

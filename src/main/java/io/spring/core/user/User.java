@@ -1,10 +1,11 @@
 package io.spring.core.user;
 
 import io.spring.Util;
-import java.util.UUID;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.UUID;
 
 @Getter
 @NoArgsConstructor

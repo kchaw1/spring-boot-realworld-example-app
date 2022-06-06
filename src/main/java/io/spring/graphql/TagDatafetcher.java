@@ -4,8 +4,9 @@ import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
 import io.spring.application.TagsQueryService;
 import io.spring.graphql.DgsConstants.QUERY;
-import java.util.List;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
 
 @DgsComponent
 @AllArgsConstructor

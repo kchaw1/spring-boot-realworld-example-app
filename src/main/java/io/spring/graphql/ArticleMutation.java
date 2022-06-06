@@ -21,8 +21,9 @@ import io.spring.graphql.types.ArticlePayload;
 import io.spring.graphql.types.CreateArticleInput;
 import io.spring.graphql.types.DeletionStatus;
 import io.spring.graphql.types.UpdateArticleInput;
-import java.util.Collections;
 import lombok.AllArgsConstructor;
+
+import java.util.Collections;
 
 @DgsComponent
 @AllArgsConstructor

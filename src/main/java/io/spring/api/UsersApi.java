@@ -1,7 +1,5 @@
 package io.spring.api;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.spring.api.exception.InvalidAuthenticationException;
 import io.spring.application.UserQueryService;
@@ -12,12 +10,6 @@ import io.spring.application.user.UserService;
 import io.spring.core.service.JwtService;
 import io.spring.core.user.User;
 import io.spring.core.user.UserRepository;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +18,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @AllArgsConstructor

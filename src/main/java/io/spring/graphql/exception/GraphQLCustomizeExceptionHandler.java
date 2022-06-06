@@ -11,15 +11,12 @@ import io.spring.api.exception.FieldErrorResource;
 import io.spring.api.exception.InvalidAuthenticationException;
 import io.spring.graphql.types.Error;
 import io.spring.graphql.types.ErrorItem;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.springframework.stereotype.Component;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class GraphQLCustomizeExceptionHandler implements DataFetcherExceptionHandler {

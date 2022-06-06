@@ -1,8 +1,9 @@
 package io.spring.application.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 public class ArticleDataList {

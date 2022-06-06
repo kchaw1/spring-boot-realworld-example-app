@@ -21,11 +21,12 @@ import io.spring.graphql.types.Article;
 import io.spring.graphql.types.Comment;
 import io.spring.graphql.types.CommentEdge;
 import io.spring.graphql.types.CommentsConnection;
+import lombok.AllArgsConstructor;
+import org.joda.time.format.ISODateTimeFormat;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-import lombok.AllArgsConstructor;
-import org.joda.time.format.ISODateTimeFormat;
 
 @DgsComponent
 @AllArgsConstructor

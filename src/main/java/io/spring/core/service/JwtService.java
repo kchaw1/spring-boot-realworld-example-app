@@ -1,8 +1,9 @@
 package io.spring.core.service;
 
 import io.spring.core.user.User;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public interface JwtService {

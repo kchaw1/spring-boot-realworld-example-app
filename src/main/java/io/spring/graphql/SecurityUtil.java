@@ -1,10 +1,11 @@
 package io.spring.graphql;
 
 import io.spring.core.user.User;
-import java.util.Optional;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.Optional;
 
 public class SecurityUtil {
   public static Optional<User> getCurrentUser() {

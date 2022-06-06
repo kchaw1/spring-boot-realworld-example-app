@@ -1,10 +1,11 @@
 package io.spring.core.comment;
 
-import java.util.UUID;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
+
+import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
