@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-import static io.spring.core.history.QHistory.*;
+import static io.spring.core.history.QHistory.history;
 
 @AllArgsConstructor
 public class HistoryRepositoryImpl implements HistoryRepositoryCustom {

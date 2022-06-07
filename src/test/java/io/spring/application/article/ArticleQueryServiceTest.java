@@ -1,11 +1,7 @@
 package io.spring.application.article;
 
-import io.spring.application.ArticleQueryService;
-import io.spring.application.CursorPageParameter;
-import io.spring.application.CursorPager;
+import io.spring.application.*;
 import io.spring.application.CursorPager.Direction;
-import io.spring.application.DateTimeCursor;
-import io.spring.application.Page;
 import io.spring.application.data.ArticleData;
 import io.spring.application.data.ArticleDataList;
 import io.spring.core.article.Article;
@@ -19,14 +15,15 @@ import io.spring.infrastructure.DbTestBase;
 import io.spring.infrastructure.repository.MyBatisArticleFavoriteRepository;
 import io.spring.infrastructure.repository.MyBatisArticleRepository;
 import io.spring.infrastructure.repository.MyBatisUserRepository;
-import java.util.Arrays;
-import java.util.Optional;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
+
+import java.util.Arrays;
+import java.util.Optional;
 
 @Import({
   ArticleQueryService.class,

@@ -8,13 +8,14 @@ import io.spring.core.user.UserRepository;
 import io.spring.infrastructure.DbTestBase;
 import io.spring.infrastructure.repository.MyBatisArticleRepository;
 import io.spring.infrastructure.repository.MyBatisUserRepository;
-import java.util.Arrays;
-import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
+
+import java.util.Arrays;
+import java.util.Optional;
 
 @Import({MyBatisArticleRepository.class, MyBatisUserRepository.class})
 public class MyBatisArticleRepositoryTest extends DbTestBase {

@@ -5,9 +5,10 @@ import io.spring.application.data.UserData;
 import io.spring.core.user.User;
 import io.spring.infrastructure.mybatis.readservice.UserReadService;
 import io.spring.infrastructure.mybatis.readservice.UserRelationshipQueryService;
-import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor

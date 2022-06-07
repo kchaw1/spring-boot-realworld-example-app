@@ -2,9 +2,10 @@ package io.spring.application.article;
 
 import io.spring.application.ArticleQueryService;
 import io.spring.core.article.Article;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import org.springframework.beans.factory.annotation.Autowired;
 
 class DuplicatedArticleValidator
     implements ConstraintValidator<DuplicatedArticleConstraint, String> {

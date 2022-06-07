@@ -3,9 +3,10 @@ package io.spring.infrastructure.repository;
 import io.spring.core.favorite.ArticleFavorite;
 import io.spring.core.favorite.ArticleFavoriteRepository;
 import io.spring.infrastructure.mybatis.mapper.ArticleFavoriteMapper;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public class MyBatisArticleFavoriteRepository implements ArticleFavoriteRepository {

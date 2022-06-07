@@ -3,14 +3,14 @@ package io.spring.application.article;
 import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
 import io.spring.core.history.CommandType;
-import io.spring.core.user.User;
-import javax.validation.Valid;
-
 import io.spring.core.history.History;
 import io.spring.core.history.HistoryRepository;
+import io.spring.core.user.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import javax.validation.Valid;
 
 @Service
 @Validated

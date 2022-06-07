@@ -1,12 +1,13 @@
 package io.spring.application.article;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
-import java.util.List;
-import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Getter
 @JsonRootName("article")

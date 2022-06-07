@@ -2,10 +2,11 @@ package io.spring.infrastructure.service;
 
 import io.spring.core.service.JwtService;
 import io.spring.core.user.User;
-import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 public class DefaultJwtServiceTest {
 

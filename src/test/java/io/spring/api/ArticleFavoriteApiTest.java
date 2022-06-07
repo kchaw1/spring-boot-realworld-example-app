@@ -1,12 +1,5 @@
 package io.spring.api;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import io.spring.JacksonCustomizations;
 import io.spring.api.security.WebSecurityConfig;
@@ -19,9 +12,6 @@ import io.spring.core.article.Tag;
 import io.spring.core.favorite.ArticleFavorite;
 import io.spring.core.favorite.ArticleFavoriteRepository;
 import io.spring.core.user.User;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +19,17 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @WebMvcTest(ArticleFavoriteApi.class)
 @Import({WebSecurityConfig.class, JacksonCustomizations.class})

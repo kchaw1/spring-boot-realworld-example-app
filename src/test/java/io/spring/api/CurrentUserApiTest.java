@@ -1,20 +1,11 @@
 package io.spring.api;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import io.spring.JacksonCustomizations;
 import io.spring.api.security.WebSecurityConfig;
 import io.spring.application.UserQueryService;
 import io.spring.application.user.UserService;
 import io.spring.core.user.User;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +15,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
 
 @WebMvcTest(CurrentUserApi.class)
 @Import({

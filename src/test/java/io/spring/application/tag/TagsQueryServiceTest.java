@@ -5,11 +5,12 @@ import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
 import io.spring.infrastructure.DbTestBase;
 import io.spring.infrastructure.repository.MyBatisArticleRepository;
-import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
+
+import java.util.Arrays;
 
 @Import({TagsQueryService.class, MyBatisArticleRepository.class})
 public class TagsQueryServiceTest extends DbTestBase {

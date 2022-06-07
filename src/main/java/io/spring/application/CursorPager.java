@@ -1,7 +1,8 @@
 package io.spring.application;
 
-import java.util.List;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 public class CursorPager<T extends Node> {

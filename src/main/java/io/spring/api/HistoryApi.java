@@ -1,11 +1,8 @@
 package io.spring.api;
 
 import io.spring.application.HistoryQueryService;
-import io.spring.core.history.HistoryRepository;
-import io.spring.core.service.AuthorizationService;
 import io.spring.core.user.User;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

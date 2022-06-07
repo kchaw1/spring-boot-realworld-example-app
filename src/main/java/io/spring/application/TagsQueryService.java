@@ -1,9 +1,10 @@
 package io.spring.application;
 
 import io.spring.infrastructure.mybatis.readservice.TagReadService;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
