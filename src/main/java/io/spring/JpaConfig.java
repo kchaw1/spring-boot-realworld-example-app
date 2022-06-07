@@ -42,7 +42,8 @@ public class JpaConfig {
         properties.put("hibernate.hbm2ddl.auto",
                 env.getProperty("spring.jpa.hibernate.ddl-auto"));
         properties.put("hibernate.dialect",
-                env.getProperty("org.hibernate.dialect.H2Dialect"));
+                env.getProperty("spring.jpa.database-platform"));
+
         em.setJpaPropertyMap(properties);
 
         return em;
