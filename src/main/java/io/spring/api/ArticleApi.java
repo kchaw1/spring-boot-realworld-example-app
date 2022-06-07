@@ -8,8 +8,11 @@ import io.spring.application.article.UpdateArticleParam;
 import io.spring.application.data.ArticleData;
 import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
+import io.spring.core.history.CommandType;
 import io.spring.core.service.AuthorizationService;
 import io.spring.core.user.User;
+import io.spring.core.history.History;
+import io.spring.core.history.HistoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -26,6 +29,7 @@ public class ArticleApi {
   private ArticleQueryService articleQueryService;
   private ArticleRepository articleRepository;
   private ArticleCommandService articleCommandService;
+  private HistoryRepository historyRepository;
 
   @GetMapping
   public ResponseEntity<?> article(
@@ -68,6 +72,7 @@ public class ArticleApi {
                 throw new NoAuthorizationException();
               }
               articleRepository.remove(article);
+              historyRepository.save(new History(CommandType.DELETE, article));
               return ResponseEntity.noContent().build();
             })
         .orElseThrow(ResourceNotFoundException::new);

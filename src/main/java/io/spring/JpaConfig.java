@@ -19,7 +19,7 @@ import java.util.HashMap;
 @Configuration
 @PropertySource({ "classpath:application.properties" })
 @EnableJpaRepositories(
-        basePackages = "io.spring.infrastructure.jpa.repository",
+        basePackages = "io.spring.core.history",
         entityManagerFactoryRef = "entityManager",
         transactionManagerRef = "transactionManager"
 )
@@ -33,7 +33,7 @@ public class JpaConfig {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(secondDataSource());
-        em.setPackagesToScan("io.spring.infrastructure.jpa.entity");
+        em.setPackagesToScan("io.spring.core.history");
 
         HibernateJpaVendorAdapter vendorAdapter
                 = new HibernateJpaVendorAdapter();

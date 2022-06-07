@@ -2,8 +2,12 @@ package io.spring.application.article;
 
 import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
+import io.spring.core.history.CommandType;
 import io.spring.core.user.User;
 import javax.validation.Valid;
+
+import io.spring.core.history.History;
+import io.spring.core.history.HistoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 public class ArticleCommandService {
 
   private ArticleRepository articleRepository;
+  private HistoryRepository historyRepository;
 
   public Article createArticle(@Valid NewArticleParam newArticleParam, User creator) {
     Article article =
@@ -24,6 +29,7 @@ public class ArticleCommandService {
             newArticleParam.getTagList(),
             creator.getId());
     articleRepository.save(article);
+    historyRepository.save(new History(CommandType.CREATE, article));
     return article;
   }
 
@@ -33,6 +39,7 @@ public class ArticleCommandService {
         updateArticleParam.getDescription(),
         updateArticleParam.getBody());
     articleRepository.save(article);
+    historyRepository.save(new History(CommandType.UPDATE, article));
     return article;
   }
 }
