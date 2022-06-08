@@ -14,8 +14,9 @@ public class HistoryData {
 
     private Long id;
     private String articleId;
-    private String userId;
     private String title;
+    private String description;
+    private String body;
     private LocalDateTime occurredAt;
     private CommandType type;
 

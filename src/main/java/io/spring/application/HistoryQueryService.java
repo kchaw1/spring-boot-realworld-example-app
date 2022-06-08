@@ -26,8 +26,9 @@ public class HistoryQueryService {
                         new HistoryData(
                                 history.getId(),
                                 history.getArticleId(),
-                                history.getUserId(),
                                 history.getTitle(),
+                                history.getDescription(),
+                                history.getBody(),
                                 history.getOccurredAt(),
                                 history.getType()))
                 .collect(Collectors.toList()),
