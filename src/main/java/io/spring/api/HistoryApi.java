@@ -20,11 +20,11 @@ public class HistoryApi {
 
     @GetMapping
     public ResponseEntity getHistory(
-            @RequestParam(value = "id", defaultValue = "0") Long id,
+            @RequestParam(value = "offset", defaultValue = "0") int offset,
             @RequestParam(value = "limit", defaultValue = "10") int limit,
             @AuthenticationPrincipal User user) {
         return ResponseEntity.ok(
-                historyQueryService.findHistoryByUserId(user.getId(), id, limit)
+                historyQueryService.findHistoryByUserId(user.getId(), offset, limit)
         );
     }
 }

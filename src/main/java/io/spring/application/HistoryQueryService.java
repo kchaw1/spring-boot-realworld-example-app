@@ -18,12 +18,9 @@ public class HistoryQueryService {
     private HistoryRepository historyRepository;
 
     @Transactional
-    public HistoryDataList findHistoryByUserId(String userId, Long id, int limit) {
-        List<History> histories;
-        histories = historyRepository.findHistoryByUserId(userId, id, limit);
-
+    public HistoryDataList findHistoryByUserId(String userId, int offset, int limit) {
         return new HistoryDataList(
-                histories
+                historyRepository.findHistoryByUserId(userId, offset, limit)
                 .stream()
                 .map(history ->
                         new HistoryData(

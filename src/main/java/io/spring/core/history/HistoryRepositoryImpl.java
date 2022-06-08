@@ -15,20 +15,14 @@ public class HistoryRepositoryImpl implements HistoryRepositoryCustom {
     private final JPAQueryFactory factory;
 
     @Override
-    public List<History> findHistoryByUserId(String userId, Long id, int limit) {
-
-        BooleanBuilder dynamicLtId = new BooleanBuilder();
-        if (id != 0L) {
-            dynamicLtId.and(history.id.lt(id));
-        }
-
+    public List<History> findHistoryByUserId(String userId, int offset, int limit) {
         return factory
                 .select(history)
                 .from(history)
-                .where(dynamicLtId
-                        .and(history.userId.eq(userId)))
+                .where(history.userId.eq(userId))
                 .orderBy(history.id.desc())
                 .limit(limit)
+                .offset(offset)
                 .fetch();
     }
 
