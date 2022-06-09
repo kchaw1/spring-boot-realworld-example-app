@@ -15,15 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class HistoryApi {
 
-    private HistoryQueryService historyQueryService;
+  private HistoryQueryService historyQueryService;
 
-    @GetMapping
-    public ResponseEntity getHistory(
-            @RequestParam(value = "offset", defaultValue = "0") int offset,
-            @RequestParam(value = "limit", defaultValue = "10") int limit,
-            @AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(
-                historyQueryService.findHistoryByUserId(user.getId(), offset, limit)
-        );
-    }
+  @GetMapping
+  public ResponseEntity getHistory(
+      @RequestParam(value = "offset", defaultValue = "0") int offset,
+      @RequestParam(value = "limit", defaultValue = "10") int limit,
+      @AuthenticationPrincipal User user) {
+    return ResponseEntity.ok(historyQueryService.findHistoryByUserId(user.getId(), offset, limit));
+  }
 }

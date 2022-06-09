@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        queryDslVersion = "5.0.0"
+        queryDslVersion = "5.0.0.M1"
     }
 }
 
@@ -96,6 +96,5 @@ sourceSets {
 }
 compileQuerydsl {
     dependsOn(generateJava)
-
     options.annotationProcessorPath = configurations.querydsl
 }

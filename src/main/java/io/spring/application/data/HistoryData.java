@@ -12,12 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class HistoryData {
 
-    private Long id;
-    private String articleId;
-    private String title;
-    private String description;
-    private String body;
-    private LocalDateTime occurredAt;
-    private CommandType type;
-
+  private Long id;
+  private String articleId;
+  private String title;
+  private String description;
+  private String body;
+  private LocalDateTime occurredAt;
+  private CommandType type;
 }

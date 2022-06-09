@@ -17,50 +17,42 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 
 @Configuration
-@PropertySource({ "classpath:application.properties" })
+@PropertySource({"classpath:application.properties"})
 @EnableJpaRepositories(
-        basePackages = "io.spring.core.history",
-        entityManagerFactoryRef = "entityManager",
-        transactionManagerRef = "transactionManager"
-)
+    basePackages = "io.spring.core.history",
+    entityManagerFactoryRef = "entityManager",
+    transactionManagerRef = "transactionManager")
 public class JpaConfig {
 
-    @Autowired
-    private Environment env;
+  @Autowired private Environment env;
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManager() {
-        LocalContainerEntityManagerFactoryBean em
-                = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(secondDataSource());
-        em.setPackagesToScan("io.spring.core.history");
+  @Bean
+  public LocalContainerEntityManagerFactoryBean entityManager() {
+    LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+    em.setDataSource(secondDataSource());
+    em.setPackagesToScan("io.spring.core.history");
 
-        HibernateJpaVendorAdapter vendorAdapter
-                = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
-        HashMap<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto",
-                env.getProperty("spring.jpa.hibernate.ddl-auto"));
-        properties.put("hibernate.dialect",
-                env.getProperty("spring.jpa.database-platform"));
+    HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+    em.setJpaVendorAdapter(vendorAdapter);
+    HashMap<String, Object> properties = new HashMap<>();
+    properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
+    properties.put("hibernate.dialect", env.getProperty("spring.jpa.database-platform"));
 
-        em.setJpaPropertyMap(properties);
+    em.setJpaPropertyMap(properties);
 
-        return em;
-    }
+    return em;
+  }
 
-    @Bean
-    @ConfigurationProperties("spring.second.datasource")
-    public DataSource secondDataSource() {
-        return DataSourceBuilder.create().build();
-    }
+  @Bean
+  @ConfigurationProperties("spring.second.datasource")
+  public DataSource secondDataSource() {
+    return DataSourceBuilder.create().build();
+  }
 
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager transactionManager
-                = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(
-                entityManager().getObject());
-        return transactionManager;
-    }
+  @Bean
+  public PlatformTransactionManager transactionManager() {
+    JpaTransactionManager transactionManager = new JpaTransactionManager();
+    transactionManager.setEntityManagerFactory(entityManager().getObject());
+    return transactionManager;
+  }
 }

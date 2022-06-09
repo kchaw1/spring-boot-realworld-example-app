@@ -15,35 +15,29 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class History {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id @GeneratedValue private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private CommandType type;
+  @Enumerated(EnumType.STRING)
+  private CommandType type;
 
-    private String userId;
-    private String articleId;
-    private String title;
-    private String slug;
-    private String description;
-    private String body;
-    private String tags;
+  private String userId;
+  private String articleId;
+  private String title;
+  private String slug;
+  private String description;
+  private String body;
+  private String tags;
 
-    @CreationTimestamp
-    private final LocalDateTime occurredAt = LocalDateTime.now();
+  @CreationTimestamp private final LocalDateTime occurredAt = LocalDateTime.now();
 
-    public History(CommandType type, Article article) {
-        this.type = type;
-        this.articleId = article.getId();
-        this.userId = article.getUserId();
-        this.title = article.getTitle();
-        this.slug = article.getSlug();
-        this.description = article.getDescription();
-        this.body = article.getBody();
-        this.tags = article.getTags()
-                            .stream()
-                            .map(Tag::getName)
-                            .collect(Collectors.joining(","));
-    }
+  public History(CommandType type, Article article) {
+    this.type = type;
+    this.articleId = article.getId();
+    this.userId = article.getUserId();
+    this.title = article.getTitle();
+    this.slug = article.getSlug();
+    this.description = article.getDescription();
+    this.body = article.getBody();
+    this.tags = article.getTags().stream().map(Tag::getName).collect(Collectors.joining(","));
+  }
 }

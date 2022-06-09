@@ -21,37 +21,38 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class MyBatisConfig {
 
-    @Primary
-    @Bean
-    @ConfigurationProperties("spring.datasource")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
-    }
+  @Primary
+  @Bean
+  @ConfigurationProperties("spring.datasource")
+  public DataSource dataSource() {
+    return DataSourceBuilder.create().build();
+  }
 
-    @Bean
-    public SqlSessionFactory sqlSessionFactory(
-            @Qualifier("dataSource") DataSource dataSource,
-            ApplicationContext applicationContext) throws Exception {
-        SqlSessionFactoryBean sqlSession = new SqlSessionFactoryBean();
-        sqlSession.setDataSource(dataSource);
-        sqlSession.setMapperLocations(applicationContext.getResources("classpath:/mapper/**.xml"));
-        sqlSession.setTypeHandlersPackage("io.spring.infrastructure.mybatis");
+  @Bean
+  public SqlSessionFactory sqlSessionFactory(
+      @Qualifier("dataSource") DataSource dataSource, ApplicationContext applicationContext)
+      throws Exception {
+    SqlSessionFactoryBean sqlSession = new SqlSessionFactoryBean();
+    sqlSession.setDataSource(dataSource);
+    sqlSession.setMapperLocations(applicationContext.getResources("classpath:/mapper/**.xml"));
+    sqlSession.setTypeHandlersPackage("io.spring.infrastructure.mybatis");
 
-        return sqlSession.getObject();
-    }
+    return sqlSession.getObject();
+  }
 
-    @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }
+  @Bean
+  public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory)
+      throws Exception {
+    return new SqlSessionTemplate(sqlSessionFactory);
+  }
 
-    @Bean
-    ConfigurationCustomizer mybatisConfigurationCustomizer() {
-        return configuration -> {
-            configuration.setCacheEnabled(true);
-            configuration.setDefaultStatementTimeout(3000);
-            configuration.setMapUnderscoreToCamelCase(true);
-            configuration.setUseGeneratedKeys(true);
-        };
-    }
+  @Bean
+  ConfigurationCustomizer mybatisConfigurationCustomizer() {
+    return configuration -> {
+      configuration.setCacheEnabled(true);
+      configuration.setDefaultStatementTimeout(3000);
+      configuration.setMapUnderscoreToCamelCase(true);
+      configuration.setUseGeneratedKeys(true);
+    };
+  }
 }

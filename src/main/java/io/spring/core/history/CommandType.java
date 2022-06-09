@@ -1,7 +1,7 @@
 package io.spring.core.history;
 
 public enum CommandType {
-    CREATE,
-    UPDATE,
-    DELETE
+  CREATE,
+  UPDATE,
+  DELETE
 }
