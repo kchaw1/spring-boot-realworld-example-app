@@ -1,81 +1,24 @@
-# ![RealWorld Example App using Kotlin and Spring](example-logo.png)
+# 구현 내용
 
-[![Actions](https://github.com/gothinkster/spring-boot-realworld-example-app/workflows/Java%20CI/badge.svg)](https://github.com/gothinkster/spring-boot-realworld-example-app/actions)
+## 화면
+![screenshot1](./screenshot1.png)
 
-> ### Spring boot + MyBatis codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
+- 로그인시 Your Feed history 탭이 생성되고 작성했던 글이 최신순으로 정렬되어 글의 상태(CREATE,UPDATE,DELETE)와 함께 표출됩니다.
 
-This codebase was created to demonstrate a fully fledged full-stack application built with Spring boot + Mybatis including CRUD operations, authentication, routing, pagination, and more.
+![screenshot2](./screenshot2.png)
+- 하단부에 페이징 구현
 
-For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
+## 구현 방법
+- 기존 sqlite 는 Mybatis 전용 DB로, JPA는 h2로 구성하였으며 각각 MybatisConfig, JpaConfig 에 DB연결에 대한 설정을 작성하였습니다.
+- Spring Data JPA와 Querydsl 을 사용하여 HistoryApi를 구현하였습니다.
+- 게시글 작성, 수정, 삭제시 게시글의 메타정보를 History 엔티티로 변환하여 HistoryRepository를 통해 데이터베이스에 저장합니다.
+- 기존 프로젝트에서 사용하던 @AuthenticationPrincipal 애노테이션을 통해 현재 로그인한 유저의 정보를 얻고 
+  로그인한 userId를 통해 본인의 게시물만 확인 할 수 있도록 하였습니다.
 
-# *NEW* GraphQL Support  
+## 형상관리
+![screenshot3](./screenshot3.png)
+- 개발내용에 따른 컨벤션에 맞춰 형상관리를 하였습니다.
 
-Following some DDD principles. REST or GraphQL is just a kind of adapter. And the domain layer will be consistent all the time. So this repository implement GraphQL and REST at the same time.
-
-The GraphQL schema is https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/resources/schema/schema.graphqls and the visualization looks like below.
-
-![](graphql-schema.png)
-
-And this implementation is using [dgs-framework](https://github.com/Netflix/dgs-framework) which is a quite new java graphql server framework.
-# How it works
-
-The application uses Spring Boot (Web, Mybatis).
-
-* Use the idea of Domain Driven Design to separate the business term and infrastructure term.
-* Use MyBatis to implement the [Data Mapper](https://martinfowler.com/eaaCatalog/dataMapper.html) pattern for persistence.
-* Use [CQRS](https://martinfowler.com/bliki/CQRS.html) pattern to separate the read model and write model.
-
-And the code is organized as this:
-
-1. `api` is the web layer implemented by Spring MVC
-2. `core` is the business model including entities and services
-3. `application` is the high-level services for querying the data transfer objects
-4. `infrastructure`  contains all the implementation classes as the technique details
-
-# Security
-
-Integration with Spring Security and add other filter for jwt token process.
-
-The secret key is stored in `application.properties`.
-
-# Database
-
-It uses a ~~H2 in-memory database~~ sqlite database (for easy local test without losing test data after every restart), can be changed easily in the `application.properties` for any other database.
-
-# Getting started
-
-You'll need Java 8 installed.
-
-    ./gradlew bootRun
-
-To test that it works, open a browser tab at http://localhost:8080/tags .  
-Alternatively, you can run
-
-    curl http://localhost:8080/tags
-
-# Try it out with [Docker](https://www.docker.com/)
-
-You'll need Docker installed.
-	
-    ./gradlew bootBuildImage --imageName spring-boot-realworld-example-app
-    docker run -p 8081:8080 spring-boot-realworld-example-app
-
-# Try it out with a RealWorld frontend
-
-The entry point address of the backend API is at http://localhost:8080, **not** http://localhost:8080/api as some of the frontend documentation suggests.
-
-# Run test
-
-The repository contains a lot of test cases to cover both api test and repository test.
-
-    ./gradlew test
-
-# Code format
-
-Use spotless for code format.
-
-    ./gradlew spotlessJavaApply
-
-# Help
-
-Please fork and PR to improve the project.
+## 실행방법
+- realworld 디렉토리에서 docker-compose up 명령어로 어플리케이션을 실행
+- http://localhost:3000 으로 접속합니다.
