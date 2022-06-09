@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HistoryApi {
 
     private HistoryQueryService historyQueryService;
-    //private AuthorizationService authorizationService;
 
     @GetMapping
     public ResponseEntity getHistory(

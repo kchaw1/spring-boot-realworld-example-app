@@ -10,6 +10,7 @@ import io.spring.application.data.ArticleData;
 import io.spring.application.data.ProfileData;
 import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
+import io.spring.core.history.HistoryRepository;
 import io.spring.core.user.User;
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
@@ -37,6 +38,8 @@ public class ArticleApiTest extends TestWithCurrentUser {
   @MockBean private ArticleQueryService articleQueryService;
 
   @MockBean private ArticleRepository articleRepository;
+
+  @MockBean private HistoryRepository historyRepository;
 
   @MockBean ArticleCommandService articleCommandService;
 
